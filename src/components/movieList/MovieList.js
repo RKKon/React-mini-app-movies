@@ -5,12 +5,13 @@ import MovieItem from "../movieItem/MovieItem";
 import './MovieList.css'
 
 const MovieList = (props) => {
-  const {movies} = props;
+  const {movies = []} = props;
   return (
     <div className="movieList">
-      {movies.map(movie => {
+      {movies.length ? movies.map(movie => {
         return <MovieItem key={movie.imdbID} {...movie} />
-      })}
+      }) : <h4>Nothimg found</h4>
+      }
     </div>
   ) 
 }

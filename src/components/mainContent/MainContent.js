@@ -1,39 +1,38 @@
 import { Component } from "react";
 import MovieList from "../movieList/MovieList";
 //import MovieService from "../movieService/MovieService";
+import PreLoader from "../preLoader/PreLoader";
+import Search from "../search/Search";
 
 class MainContent extends Component {
   state = {
     movies: [],
+    loading: true,
   }
 
   componentDidMount() {
     fetch('http://www.omdbapi.com/?apikey=ffb98f22&s=matrix')
       .then(response => response.json())
-      .then(data => this.setState({movies: data.Search}))
+      .then(data => this.setState({movies: data.Search, loading: false}))
   }
 
-  // getResource = async (url) => { // async делает синхронный код. Вместе с await. не блокирует код подобие синхронного кода
-  //   let result = await fetch(url);
-  //   if (!result.ok) { // поскольку fetch не выдаёт ошибки и reject надо проверить на ошибки
-  //       throw new Error(`Could not fetch ${url}, status: ${result.status}`);
-  //   }
-  //   return await result.json();
-  // }
-  // getAllMovies = async () => {
-  //   const res = await this.getResource(`http://www.omdbapi.com/?apikey=ffb98f22&s=matrix`);
-  //   return res.Search;
-  // }
+  searchMovies = (str, type = 'all') => {
+    this.setState({loading: true})
+    fetch(`http://www.omdbapi.com/?apikey=ffb98f22&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
+    .then(response => response.json())
+    .then(data => this.setState({movies: data.Search, loading: false}))
+  }
 
   render() {
-    const {movies} = this.state
+    const {movies, loading} = this.state
     return(
       <main className="container content">
+        <Search searchMovies={this.searchMovies} />
         {
-          movies.length ? (<MovieList movies={this.state.movies} />) : 
-          <h3>Loading...</h3> 
+          loading ? ( <PreLoader />) : 
+          (<MovieList movies={movies} />)
+          
         }
-        
       </main>
     )
   }
