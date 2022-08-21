@@ -10,7 +10,7 @@ const MovieList = (props) => {
     <div className="movieList">
       {movies.length ? movies.map(movie => {
         return <MovieItem key={movie.imdbID} {...movie} />
-      }) : <h4>Nothimg found</h4>
+      }) : <h4>Nothing found</h4>
       }
     </div>
   ) 

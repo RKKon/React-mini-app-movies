@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="footer-copyright">
         <div className="container">
         © {new Date().getFullYear()} Copyright Text
-        <a className="grey-text text-lighten-4 right" href="#">Repository</a>
+        <a target='_blank' rel="noreferrer" className="grey-text text-lighten-4 right" href="https://github.com/RKKon/React-app-mini-store/tree/main">Repository</a>
         </div>
       </div>
     </footer>
