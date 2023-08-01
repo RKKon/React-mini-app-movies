@@ -1,13 +1,16 @@
 {
   "files": {
     "main.css": "/React-mini-app-movies/static/css/main.7eb9eba8.css",
-    "main.js": "/React-mini-app-movies/static/js/main.d4b01457.js",
+    "main.js": "/React-mini-app-movies/static/js/main.92f5bb5e.js",
+    "static/media/instagram.svg": "/React-mini-app-movies/static/media/instagram.c84ed93167b9fbc4db3ad019e63d67b5.svg",
     "index.html": "/React-mini-app-movies/index.html",
+    "static/media/Facebook.svg": "/React-mini-app-movies/static/media/Facebook.2eb6a00b9083bf816f4b8303e7e93e7d.svg",
+    "static/media/telegram.svg": "/React-mini-app-movies/static/media/telegram.f50c53492da092e44ad4e6455d9e260b.svg",
     "main.7eb9eba8.css.map": "/React-mini-app-movies/static/css/main.7eb9eba8.css.map",
-    "main.d4b01457.js.map": "/React-mini-app-movies/static/js/main.d4b01457.js.map"
+    "main.92f5bb5e.js.map": "/React-mini-app-movies/static/js/main.92f5bb5e.js.map"
   },
   "entrypoints": [
     "static/css/main.7eb9eba8.css",
-    "static/js/main.d4b01457.js"
+    "static/js/main.92f5bb5e.js"
   ]
 }
