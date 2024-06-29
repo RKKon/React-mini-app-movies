@@ -3,7 +3,6 @@ class MovieService {
   //_apiKey = 'apikey=ffb98f22';
 
   getResource = async (url) => {
-    // async делает синхронный код. Вместе с await. не блокирует код подобие синхронного кода
     let result = await fetch(url);
     if (!result.ok) {
       // поскольку fetch не выдаёт ошибки и reject надо проверить на ошибки

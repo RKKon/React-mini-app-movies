@@ -2,18 +2,21 @@ import { useState } from "react";
 
 const Search = (props) => {
   const { searchMovies = Function.prototype } = props;
+  const { getMoreMovies = Function.prototype } = props;
   const [search, setSearch] = useState("");
   const [type, setType] = useState("all");
 
   const handleKey = (e) => {
     if (e.key === "Enter") {
       searchMovies(search, type);
+      getMoreMovies(search, type)
     }
   };
 
   const handleFilter = (e) => {
     setType(e.target.dataset.type);
     searchMovies(search, e.target.dataset.type);
+    getMoreMovies(search, e.target.dataset.type)
   };
 
   return (
@@ -27,7 +30,10 @@ const Search = (props) => {
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={handleKey}
         />
-        <button className="btn search-btn" onClick={() => searchMovies(search, type)}>
+        <button className="btn search-btn" onClick={() => {
+          searchMovies(search, type)
+          getMoreMovies(search, type)
+        }}>
           Search
         </button>
         <div className="search-flex">
